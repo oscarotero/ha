@@ -1,0 +1,51 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+Goya y el dolor
+*/
+
+.tm-reportage-22 {
+    --accent-color: hsl(10, 100%, 60%);
+	background-image: linear-gradient(to bottom, transparent, var(--background-color)), var(--main-image);
+	background-repeat: no-repeat;
+	background-size: 100% 58vw;
+	background-position: center top;
+
+	@media (max-aspect-ratio: 6 / 7) {
+		background-size: auto 58vh;
+	}
+
+	& .reportage-header {
+		min-height: 45vh;
+		mix-blend-mode: luminosity;
+		text-shadow: 0 1px 1px color-mod(black a(.5));
+	}
+
+	& .reportage-body {
+		& blockquote {
+			border-left-color: var(--accent-color);
+		}
+
+		& img {
+			border: solid 1px var(--accent-color);
+		}
+
+		& section:nth-of-type(2) img {
+			border: none;
+		}
+
+		& section:nth-of-type(1) {
+			@extend %reportage-section-outbox;
+			background: black;
+		}
+
+		& blockquote {
+			color: white;
+		}
+
+		& h2 {
+			color: var(--accent-color);
+		}
+	}
+}

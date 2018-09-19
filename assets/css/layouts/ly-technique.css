@@ -1,0 +1,101 @@
+.ly-technique {
+    @extend %sticky-bottom;
+    display: grid;
+    grid-column-gap: var(--size-gap-columns);
+    grid-row-gap: var(--size-gap-rows);
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    grid-template-columns: 0 1fr 0;
+    grid-template-rows: 4rem auto auto auto auto 4rem;
+    justify-content: space-between;
+    align-content: space-between;
+    grid-template-areas: '. . .'
+                         '. header .'
+                         'image image image'
+                         '. description .'
+                         '. artworks .'
+                         '. . .';
+
+    @media (--from-width-1) {
+        grid-template-areas: '. . .'
+                             '. header .'
+                             '. image .'
+                             '. description .'
+                             '. artworks .'
+                             '. . .';
+    }
+
+    @media (--from-width-3) {
+        grid-template-columns: 30vw minmax(auto, 90rem) 0;
+        grid-template-rows: 4rem auto auto auto 4rem;
+        grid-template-areas: 'image . .'
+                             'image header .'
+                             'image description .'
+                             'image artworks .'
+                             'image . .';
+
+        & .ly-technique-image {
+            & img {
+                height: 100vh;
+            }
+
+            & picture {
+                display: block;
+                position: sticky;
+                top: 0;
+            }
+        }
+    }
+}
+
+.ly-technique-image {
+    grid-area: image;
+
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.ly-technique-header {
+    grid-area: header;
+}
+
+.ly-technique-description {
+    grid-area: description;
+    max-width: 36em;
+}
+
+.ly-technique-artworks {
+    grid-area: artworks;
+}
+
+
+.anim-transition .ly-technique {
+    & .ly-technique-header,
+    & .ly-technique-description,
+    & .ly-technique-artworks {
+        animation: fadeInDown .9s;
+        animation-fill-mode: both;
+    }
+
+    & .ly-technique-image {
+        animation: fadeIn .9s;
+        animation-fill-mode: both;
+    }
+
+    & .ly-technique-header {
+        animation-delay: 0;
+    }
+    & .ly-technique-image {
+        animation-delay: .3s;
+    }
+    & .ly-technique-artworks {
+        animation-delay: .6s;
+    }
+    & .ly-technique-description {
+        animation-delay: .3s;
+    }
+}

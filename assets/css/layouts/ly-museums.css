@@ -1,0 +1,45 @@
+.ly-museums {
+    @extend %sticky-bottom;
+    display: grid;
+    grid-column-gap: var(--size-gap-columns);
+    grid-row-gap: var(--size-gap-rows);
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    grid-template-columns: 0 1fr 0;
+    grid-template-rows: minmax(50vw, 66vh) auto;
+    justify-content: space-between;
+    align-content: space-between;
+    grid-template-areas: 'map map map'
+                         '. list .';
+
+    @media (--to-width-3) {
+        & .ly-museums-list > li {
+            & > img {
+                display: none;
+            }
+        }
+    }
+
+    @media (--from-width-4) AND (min-aspect-ratio: 5/3) {
+        grid-template-columns: 100vh 1fr 0;
+        grid-template-rows: 4rem auto 4rem;
+        grid-template-areas: 'map . .'
+                             'map list .'
+                             'map . .';
+
+        & .ly-museums-map {
+            max-height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+    }
+
+
+}
+.ly-museums-list {
+    grid-area: list;
+}
+.ly-museums-map {
+    grid-area: map;
+}

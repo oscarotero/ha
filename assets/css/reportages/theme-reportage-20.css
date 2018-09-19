@@ -1,0 +1,47 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+Freud y Schiele
+*/
+
+.tm-reportage-20 {
+    --accent-color: hsl(250, 80%, 60%);
+	background-image: linear-gradient(to bottom, transparent 80%, #fbe6c9 95%), var(--main-image);
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: 100% 63vw, 100% auto;
+	padding-bottom: var(--size-gap-rows);
+
+	& .reportage-header {
+		min-height: 50vw;
+		
+		& ::selection {
+			background: var(--accent-color);
+		}
+
+		& .taxonomy-info li {
+			background-color: var(--background-color);
+			padding: .3em 1em;
+			border-radius: 20px;
+		}
+	}
+
+	& .reportage-title,
+	& .reportage-subtitle {
+		color: white;
+		text-shadow: 0 1px 1px color-mod(black a(.4));
+		mix-blend-mode: difference;
+	}
+
+	& .reportage-body {
+		& figcaption,
+		& blockquote {
+			color: var(--accent-color);
+		}
+
+		& figure:nth-of-type(n + 2) {
+			@extend %reportage-figcaption-right;
+		}
+	}
+}

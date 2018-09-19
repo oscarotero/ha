@@ -1,0 +1,10 @@
+@import './theme-placeholders.css';
+
+/*
+Ridículo
+*/
+
+.tm-reportage-21 {
+    --accent-color: #3d7ab8;
+	background-image: var(--main-image);
+}

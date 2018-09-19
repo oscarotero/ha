@@ -1,0 +1,55 @@
+.button {
+	@extend %button;
+	font-weight: bold;
+	color: var(--foreground-color, black);
+	background: var(--background-color, white);
+	padding-left: .6rem;
+	padding-right: .6rem;
+
+	&:hover {
+		color: var(--background-color, white);
+		border-color: var(--foreground-color, black);
+		background: var(--foreground-color, black);
+	}
+
+	& span:first-child {
+		margin-right: .6em;
+	}
+
+	& span:last-child {
+		margin-left: .6em;
+	}
+
+	& + .button {
+		border-left: none;
+	}
+}
+
+.button-icon {
+	@extend %button;
+	color: var(--foreground-color, black);
+	background: var(--background-color, white);
+	width: 17px;
+	height: 17px;
+	padding: .6rem;
+	box-sizing: content-box;
+}
+a:hover .button-icon {
+	color: var(--background-color, white);
+	background: var(--foreground-color, black);
+}
+
+.button-link {
+	@extend %button;
+	font-weight: bold;
+	color: var(--foreground-color, black);
+	background: var(--background-color, white);
+	padding-left: 1rem;
+	padding-right: 1rem;
+	text-decoration: underline;
+	border: none;
+
+	&:hover {
+		text-decoration: none;
+	}
+}

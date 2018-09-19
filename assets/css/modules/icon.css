@@ -1,0 +1,10 @@
+.icon {
+	& rect,
+	& circle,
+	& line,
+	& polyline {
+		stroke: currentColor;
+		stroke-width: 1px;
+		fill: none;
+	}
+}

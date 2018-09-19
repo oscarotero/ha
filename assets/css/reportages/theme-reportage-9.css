@@ -1,0 +1,81 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+
+/*
+30 artistas, según el cine
+*/
+
+.tm-reportage-9 {
+    --accent-color: hsl(50, 100%, 60%);
+    padding-bottom: var(--size-gap-rows);
+	@extend %reportage-big-header;
+
+	& .reportage-header {
+		background-image: linear-gradient(to bottom, transparent, var(--background-color)), var(--main-image);
+		background-color: var(--background-color);
+		background-repeat: no-repeat;
+		background-blend-mode: overlay;
+		background-size: cover;
+		border-bottom: dotted 16px var(--accent-color);
+		min-height: 70vh;
+	}
+
+	& .reportage-title {
+		max-width: 9em;
+		color: var(--accent-color);
+		text-transform: uppercase;
+	}
+
+	& .reportage-subtitle {
+		max-width: 19em;
+	}
+
+	& .reportage-body {
+		grid-template-columns: repeat(auto-fit, minmax(auto, 32rem));
+		justify-content: center;
+		grid-gap: 1rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
+
+		@media (--from-width-2) {
+			grid-gap: 2rem;
+			padding-left: 2rem;
+			padding-right: 2rem;
+		}
+
+		& > div {
+			grid-column: 1 / -1;
+
+			& > p {
+				max-width: 42rem;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+
+		& h2 {
+			@extend %sans-3;
+			margin-top: 0;
+		}
+
+		& section {
+			background: white;
+			color: var(--background-color);
+			padding: 2rem;
+			border-top: solid 10px var(--accent-color);
+			grid-column-start: auto;
+
+			& > figure {
+				margin-left: -2rem;
+				margin-right: -2rem;
+				margin-bottom: 0;
+			}
+
+			& figcaption {
+				padding-left: 2rem;
+				padding-right: 2rem;
+			}
+		}
+	}
+}

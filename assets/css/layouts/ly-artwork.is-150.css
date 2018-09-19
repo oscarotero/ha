@@ -1,0 +1,84 @@
+/* Imaxe extra horizontal (6/4) */
+.ly-artwork.is-150 {
+    padding-top: 4rem;
+    grid-template-areas: '. . .'
+                         '. header .'
+                         'figure figure figure'
+                         '. nav .'
+                         '. content .'
+                         '. . .';
+
+    @media (--from-width-3) {
+        grid-template-columns: 0 minmax(auto, 18rem) 1fr 0;
+        grid-template-areas: '. . . .'
+                             '. header header .'
+                             'figure figure figure figure'
+                             '. nav content .'
+                             '. . . .';
+
+        & .ly-artwork-nav > footer {
+            position: sticky;
+        }
+    }
+
+    @media (--from-width-4) and (max-aspect-ratio: 8/4) {
+        grid-template-columns: 0 1fr minmax(auto, 18rem) 0;
+        grid-template-areas: '. header header .'
+                             '. figure nav .'
+                             '. content content .'
+                             '. . . .';
+
+        & .ly-artwork-header {
+            text-align: left;
+            justify-self: flex-start;
+        }
+    }
+
+    @media (--from-width-4) and (min-aspect-ratio: 8/4) {
+        padding-top: 0;
+        grid-template-columns: auto 1fr 0;
+        grid-template-areas: 'figure . .'
+                             'figure header .'
+                             'figure nav .'
+                             'figure content .'
+                             'figure . .';
+
+        & .ly-artwork-figure {
+            width: var(--image-ratio);
+            max-width: calc(100vw - 32rem);
+
+            & img {
+                height: 100vh;
+                object-fit: cover;
+            }
+
+            & figure {
+                position: sticky;
+                top: 0;
+            }
+        }
+
+        & .ly-artwork-header {
+            padding-top: calc(4rem + var(--size-gap-rows));
+            padding-bottom: 4rem;
+            text-align: left;
+            justify-self: flex-start;
+        }
+
+        & .ly-artwork-nav > footer {
+            position: static;
+        }
+    }
+
+    @media (--from-width-5) and (min-aspect-ratio: 13/4) {
+        grid-template-columns: auto 1fr minmax(auto, 18rem) 0;
+        grid-template-areas: 'figure . . .'
+                             'figure header header .'
+                             'figure content nav .'
+                             'figure . . .';
+
+        & .ly-artwork-nav > footer {
+            position: sticky;
+        }
+    }
+}

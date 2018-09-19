@@ -1,0 +1,32 @@
+{
+  "name": "node-dependencies",
+  "private": true,
+  "dependencies": {
+    "@oom/carousel": "^3.0.0",
+    "@oom/page-loader": "^3.0.0",
+    "@oom/suggestions": "github:oom-components/suggestions",
+    "@webcomponents/custom-elements": "^1.2.0",
+    "animejs": "^2.2.0",
+    "normalize.css": "^8.0.0",
+    "smoothscroll-polyfill": "^0.4.3"
+  },
+  "devDependencies": {
+    "browser-assets": "^1.4.0",
+    "browser-sync": "^2.24.7",
+    "cssnano": "^4.1.0",
+    "gulp": "^4.0.0",
+    "gulp-postcss": "^8.0.0",
+    "hint": "^3.2.3",
+    "php-server-manager": "^1.3.1",
+    "postcss-extend": "^1.0.5",
+    "postcss-import": "^12.0.0",
+    "postcss-preset-env": "^5.3.0",
+    "postcss-url": "^8.0.0",
+    "prettier": "^1.14.2",
+    "terser": "^3.8.2"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development gulp sync",
+    "prettier": "prettier assets/js/**/*.js assets/js/*.js gulpfile.js --single-quote --tab-width 4 --print-width 120 --write"
+  }
+}

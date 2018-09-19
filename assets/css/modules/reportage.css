@@ -1,0 +1,242 @@
+.reportage {
+	background: var(--background-color, inherit);
+	color: var(--foreground-color, inherit);
+}
+.reportage-title {
+    margin: 0;
+}
+
+.reportage-header {
+    text-align: center;
+}
+
+.reportage-body {
+	@extend %body-text-grouped;
+}
+
+.reportage.is-permalink {
+	& .reportage-title {
+	    @extend %sans-5;
+	}
+
+	& .reportage-subtitle {
+		@extend %sans-3;
+		font-weight: bold;
+	    margin: var(--size-gap-rows) 0 0;
+	}
+
+	& .reportage-nav {
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    margin-top: var(--size-gap-rows);
+
+	    & ul {
+	        justify-content: center;
+	    }
+	}
+}
+
+.reportage.is-card,
+.reportage.is-list {
+	height: 100%;
+	background: none;
+	color: inherit;
+
+	& a {
+		display: block;
+		text-decoration: none;
+		background-color: none;
+		color: var(--base-foreground-color);
+
+		&:hover,
+		&:focus {
+			background-color: var(--background-color);
+			color: var(--foreground-color);
+
+			& .reportage-image {
+				& img {
+					filter: none;
+					transform: scale(1.2, 1.2);
+				}
+			}
+		}
+	}
+
+	& .reportage-image {
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+
+		& img {
+			filter: saturate(0%);
+			transition: filter .3s, transform .3s;
+		}
+	}
+}
+
+@supports (display: grid) {
+	.reportage.is-card,
+	.reportage.is-list {
+		& .reportage-image {
+			& img {
+				object-fit: cover;
+				object-position: left top;
+				max-height: 50vh;
+				width: 100%;
+			}
+		}
+	}
+}
+
+.reportage.is-card {
+	& > a {
+		height: 100%;
+	}
+
+	& .reportage-header {
+		padding: 1rem;
+		margin-top: 1rem;
+	}
+
+	& .reportage-title {
+		@extend %sans-2;
+	}
+
+	& .reportage-subtitle {
+		@extend %sans-2;
+	}
+
+	& .reportage-author {
+		@extend %sans-1;
+	}
+}
+
+.reportage.is-list {
+	height: 100%;
+
+	& a {
+		display: flex;
+		height: 100%;
+	}
+
+	& .reportage-image {
+		width: 30%;
+		flex: 0 0 auto;
+
+		& img {
+			height: 100%;
+		}
+	}
+
+	& .reportage-header {
+		padding: 1rem;
+		text-align: left;
+		align-self: center;
+	}
+
+	& .reportage-title {
+		@extend %sans-2;
+	}
+
+	& .reportage-subtitle {
+		@extend %sans-1;
+	}
+
+	& .reportage-author {
+		@extend %sans-1;
+	}
+}
+
+.reportage-related-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-columns: 1fr;
+	--foreground-color: hsl(200, 100%, 15%);
+	--accent-color: hsl(50, 50%, 95%);
+
+	@media (--from-width-2) {
+		grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+	}
+}
+
+.reportage.is-highlight {
+	box-sizing: border-box;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	& > a {
+		text-decoration: none;
+		display: block;
+		animation: fadeInDown .6s;
+        animation-fill-mode: both;
+        animation-delay: 1s;
+	}
+
+	& .reportage-image {
+		margin: 0;
+	}
+
+	& .reportage-header {
+		text-align: left;
+	}
+
+	& .reportage-title {
+		@extend %sans-4;
+		margin: .6em 0;
+	}
+
+	& .reportage-subtitle {
+		@extend %sans-2;
+	}
+}
+
+
+/* Buscador de artistas */
+body.has-reportage-search {
+}
+
+.reportage.is-suggestion {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	transition: background-color .3s, filter .3s;
+
+	&:hover,
+	&:focus {
+		background-color: var(--base-background-color);
+
+		& .reportage-image {
+			filter: saturate(100%);
+		}
+	}
+
+	& .reportage-image {
+		flex: 0 0 175px;
+		margin: 0 1em 0 0;
+		overflow: hidden;
+
+		& img {
+			filter: saturate(0%);
+			transition: transform .6s;
+			width: 100%;
+		}
+	}
+
+	& .reportage-title {
+		margin: 0;
+		@extend %sans-1;
+		line-height: 1.4;
+	}
+
+	& .reportage-subtitle {
+		margin: 0;
+		@extend %sans-1;
+		line-height: 1.4;
+	}
+}

@@ -1,0 +1,54 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+Las aventuras del joven artista Adolf Hitler
+*/
+
+.tm-reportage-11 {
+    --accent-color: hsl(47.4, 47.3%, 82.2%);
+	@extend %reportage-big-header;
+	padding-bottom: var(--size-gap-rows);
+
+	& .reportage-header {
+		background-image: var(--main-image);
+		background-size: cover;
+		background-position: center;
+		min-height: 90vh;
+		box-sizing: border-box;
+		padding-bottom: 150px;
+	}
+
+	& .reportage-title {
+		max-width: 48rem;
+		text-shadow: 2px 2px 0 var(--accent-color),
+					-2px 2px 0 var(--accent-color),
+					-2px -2px 0 var(--accent-color),
+					2px -2px 0 var(--accent-color);
+	}
+
+	& .reportage-subtitle {
+		max-width: 48rem;
+		background-color: var(--accent-color);
+		padding: var(--size-gap-rows) var(--size-gap-columns);
+	}
+
+	& .taxonomy-info li {
+		background-color: var(--background-color);
+		padding: .3em 1em;
+	}
+
+	& .reportage-body {
+		margin-top: -150px;
+
+		& > div:first-child {
+			@extend %reportage-section-outbox;
+			background-color: var(--background-color);
+			padding-top: 1rem;
+		}
+
+		& blockquote {
+			border-color: var(--accent-color);
+		}
+	}
+}

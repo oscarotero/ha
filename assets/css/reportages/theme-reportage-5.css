@@ -1,0 +1,45 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+Los locos, locos retratos de Gericault
+*/
+
+.tm-reportage-5 {
+    --accent-color: #f8cb40;
+
+	background-image: linear-gradient(to bottom, #22202e99, #22202e), var(--main-image);
+	background-repeat: no-repeat;
+	background-size: 100% 58vw;
+	padding-bottom: var(--size-gap-rows);
+
+	& .reportage-header {
+		& .reportage-title {
+			@extend %serif-5;
+			color: var(--accent-color);
+			text-shadow: 0 2px 1px black;
+		}
+	}
+
+	& .reportage-body {
+		& h2 {
+			@extend %serif-3;
+			color: var(--accent-color);
+		}
+		& figcaption {
+			color: var(--accent-color);
+		}
+
+		& .section-gallery {
+			background: color-mod(black a(.3));
+		}
+
+		& h2 + figure {
+			@extend %reportage-figure-right;
+		}
+
+		& > figure {
+			max-width: 125%;
+		}
+	}
+}

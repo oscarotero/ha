@@ -1,0 +1,20 @@
+.script {
+	margin: 1rem 0;
+	padding: 1em;
+	font-family: courier, monospace;
+	font-size: 1rem;
+	line-height: 1.4;
+	background: white;
+	color: var(--base-foreground-color);
+	box-decoration-break: clone;
+	box-shadow: 0 1px 2px color-mod(black a(.2));
+}
+.script-character {
+	text-align: center;
+	font-weight: normal;
+	font-family: inherit !important;
+	display: block;
+}
+.script-dialog {
+	margin-left: 15%;
+}

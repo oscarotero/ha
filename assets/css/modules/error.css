@@ -1,0 +1,27 @@
+body.has-error {
+	--background-color: #EEECD7;
+}
+
+.error {
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center 15%;
+
+	& .error-content {
+		text-align: center;
+	}
+
+	& .error-image {
+		margin: 0;
+	}
+
+	& h1 {
+		margin: 0;
+		@extend %sans-4;
+	}
+
+	& p {
+		margin: 1em 0;
+		@extend %sans-2;
+	}
+}

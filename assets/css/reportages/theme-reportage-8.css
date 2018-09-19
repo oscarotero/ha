@@ -1,0 +1,50 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+David Lynch y Francis Bacon: Un análisis comparativo;
+*/
+
+.tm-reportage-8 {
+    --accent-color: #ff607b;
+
+	@extend %reportage-big-header;
+	
+	& .reportage-header {
+		color: white;
+		text-shadow: 0 2px 1px color-mod(black a(.2));
+		background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), var(--main-image);
+		background-position: top center;
+		background-repeat: no-repeat;
+		background-blend-mode: overlay;
+		background-size: cover;
+		background-color: var(--background-color);
+		border-bottom: solid 8px var(--accent-color);
+		min-height: 80vh;
+
+		& p {
+			color: var(--accent-color);
+		}
+	}
+
+	& .reportage-title {
+		max-width: 13em;
+	}
+
+	& .reportage-subtitle {
+		max-width: 20em;
+	}
+
+	& .reportage-body {
+		padding-top: var(--size-gap-rows);
+		background: var(--background-color);
+	}
+
+	& figure img {
+		border-bottom: solid 8px var(--accent-color);
+	}
+
+	& figcaption {
+		color: var(--accent-color);
+	}
+}

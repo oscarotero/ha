@@ -1,0 +1,509 @@
+/* Obra */
+.artwork {
+	background: var(--background-color, inherit);
+	color: var(--foreground-color, inherit);
+}
+.artwork-title {
+	margin: .3em 0 0 0;
+}
+.artwork-subtitle {
+	margin: .16em 0 1em 0;
+}
+.artwork-figure {
+	margin: 0;
+
+	& img {
+		display: block;
+		margin: 0 auto;
+		transform-origin: center 20%;
+	}
+}
+.artwork-gallery {
+	align-items: center;
+	
+	& > * {
+		max-width: calc(90% - var(--size-gap-columns));
+		padding: 0 calc(var(--size-gap-columns) / 2);
+		margin: 0;
+
+		& img {
+			max-height: 90vh;
+		}
+	}
+}
+
+.artwork-video {
+	margin: 0;
+	padding: 0;
+
+	& iframe {
+		margin: 0 auto;
+		display: block;
+		max-width: 100%;
+		max-height: 100vh;
+	}
+
+	&.is-responsive {
+		max-height: 100vh;
+		height: 56vw;
+
+		& iframe {
+			width: 100%;
+			height: 100%;
+			background: color-mod(black a(.2));
+		}
+	}
+}
+.artwork-body {
+	@extend %body-text-ungrouped;
+}
+
+/* Permalink */
+.artwork.is-permalink {
+	position: relative;
+	box-shadow: 0 1px 4px color-mod(black a(.1)), 0 2px 30px color-mod(black a(.4));
+
+	& .artwork-title {
+		@extend %sans-4;
+		margin-top: 0;
+	}
+
+	& .artwork-subtitle {
+		@extend %sans-3;
+		margin-bottom: var(--size-gap-rows);
+	}
+
+	& .artwork-info {
+		position: relative;
+		display: inline-block;
+		padding-left: 70px;
+		text-align: left;
+		min-height: 50px;
+
+		& p {
+			margin: 0 0 .3em 0;
+		}
+
+		& img,
+		& svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		& a {
+			@extend %link;
+		}
+	}
+}
+
+/* Dentro dun timeline */
+.artwork.is-timeline {
+	padding: 7px 0;
+	text-align: center;
+	background-color: transparent;
+	color: inherit;
+	display: flex;
+
+	& a {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-decoration: none;
+		width: 300px;
+		padding: var(--size-gap-rows) var(--size-gap-columns);
+		background-color: color-mod(black a(0));
+		transition: background-color .3s;
+		will-change: background-color;
+		background-image: url('data:image/svg+xml;utf8,<svg width="10px" height="2px" viewBox="0 0 10 2" xmlns="http://www.w3.org/2000/svg"><path d="M0,1 L10,1" stroke="%23000" stroke-width="2"></path></svg>');
+		background-repeat: repeat-x;
+		background-position: left calc(var(--size-gap-rows) + 340px);
+
+		&:focus,
+		&:hover {
+			outline: 0;
+			background-color: var(--background-color);
+			color: var(--foreground-color);
+
+			& .artwork-figure img {
+				transform: scale(1.2, 1.2);
+			}
+
+			& .artwork-time {
+				background-color: var(--foreground-color);
+				color: var(--background-color);
+				border-color: transparent;
+			}
+		}
+
+		&:focus {
+			outline: solid 1px;
+			outline-offset: 6px;
+		}
+
+		&:not(:hover):not(:focus) {
+			--foreground-color: hsl(201, 100%, 15%);
+			--background-color: hsl(50, 50%, 96%);
+		}
+	}
+
+	& .artwork-header {
+		
+	}
+
+	& .artwork-title {
+		@extend %sans-2;
+		margin: .5em 0;
+	}
+
+	& .artwork-subtitle {
+		/*color: var(--background-color);*/
+		overflow: hidden;
+	}
+
+	& .artwork-figure {
+		height: 300px;
+		margin-bottom: 10px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 55% 95%, 50% 100%, 45% 95%, 0% 95%);
+	}
+
+	& img {
+		transition: .6s;
+		will-change: transform;
+	}
+}
+
+
+/* Listaxe */
+.artwork.is-list {
+	background: transparent;
+	color: inherit;
+
+	& > a {
+		display: flex;
+		background-color: var(--background-color, inherit);
+		color: var(--foreground-color, inherit);
+		text-decoration: none;
+		transition: background-color .3s;
+		box-sizing: border-box;
+		height: 100%;
+
+		&:not(:hover):not(:focus) {
+			--foreground-color: var(--base-foreground-color);
+			--background-color: transparent;
+		}
+	}
+
+	& .artwork-figure {
+		overflow: hidden;
+		flex: 0 0 120px;
+		max-width: 33%;
+
+		& img {
+			transition: transform .3s;
+			filter: saturate(0%);
+		}
+	}
+
+	& .artwork-header {
+		flex: 1 1 auto;
+		display: flex;
+		overflow: hidden;
+		align-items: center;
+
+		& > * {
+			padding: 1rem;
+			flex: 0 0 100%;
+			box-sizing: border-box;
+			max-width: 100%;
+			word-wrap: break-word;
+			transition: transform .3s;
+		}
+
+		&:hover > * {
+			transform: translateX(-100%);
+		}
+	}
+
+	& .artwork-title {
+		@extend %sans-2;
+		margin: 0 0 .3rem 0;
+	}
+
+	& .artwork-info {
+		@extend %sans-1-short;
+
+		& p {
+			margin: 0 0 .3rem 0;
+		}
+	}
+
+	& .artwork-subtitle {
+		@extend %sans-1;
+	}
+
+	&:hover {
+		& .artwork-figure img {
+			transform: scale(1.2, 1.2);
+			filter: saturate(100%);
+		}
+	}
+}
+
+@supports (display: grid) {
+	.artwork.is-list {
+		& .artwork-figure {
+			max-height: 50vh;
+
+			& img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+}
+
+.artwork-related-group {
+	--background-color: white;
+	--foreground-color: var(--base-foreground-color);
+	background: var(--background-color);
+	color: var(--foreground-color);
+	padding: 0;
+	margin-top: 0;
+	/*position: relative;*/
+}
+
+.carousel-wrapper.has-artwork {
+	& ha-carousel {
+		align-items: stretch;
+	}
+
+	& .carousel-button {
+		top: calc(125px - 3rem);
+	}
+
+	& .artwork {
+		padding: 0;
+		max-width: 300px;
+
+		& > a {
+			flex-direction: column;
+			height: 100%;
+		}
+
+		& .artwork-header {
+			flex-grow: 1;
+			align-items: stretch;
+		}
+
+		& .artwork-figure {
+			flex: 0 0 auto;
+			max-width: none;
+
+			& img {
+				width: 100%;
+				height: 250px;
+			}
+		}
+
+		& .artwork-subtitle.is-short {
+			@extend %sans-2;
+		}
+	}
+}
+
+/* Buscador de obras */
+body.has-artwork-search {
+}
+.artwork-search {
+	background-color: var(--background-color);
+	color: var(--foreground-color);
+}
+.artwork-search-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+@supports (display: grid) {
+	ul.artwork-search-list {
+		display: grid;
+		grid-row-gap: var(--size-gap-rows);
+		grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+
+		/* Modo grande */
+		@media (--from-width-2) {
+			grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+
+			& .artwork.is-list {
+				height: 100%;
+				
+				& > a {
+					flex-direction: column;
+					height: 100%;
+				}
+
+				& .artwork-header {
+					flex-grow: 1;
+					align-items: stretch;
+				}
+
+				& .artwork-figure {
+					flex: 0 0 auto;
+					max-width: none;
+				}
+
+				& .artwork-figure img {
+					height: 250px;
+				}
+
+				& .artwork-subtitle.is-short {
+					@extend %sans-2;
+				}
+			}
+		}
+	}
+}
+ul.artwork-related-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 1rem;
+
+	@media (--from-width-1) {
+		grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+	}
+
+	@media (--from-width-2) {
+		grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+	}
+
+	& > li {
+		max-width: 40rem;
+	}
+
+	& .artwork.is-list {
+		height: 100%;
+	}
+
+	& + .pagination {
+		margin-top: var(--size-2);
+	}
+}
+
+
+.artwork.is-suggestion {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	transition: background-color .3s, color .3s;
+	min-height: 100px;
+
+	&:not(:hover):not(:focus) {
+		--foreground-color: var(--base-foreground-color);
+		--background-color: transparent;
+	}
+
+	&:hover {
+		& .artwork-figure img {
+			transform: scale(1.2, 1.2);
+		}
+	}
+
+	& .artwork-image {
+		overflow: hidden;
+		flex: 0 0 120px;
+		margin-right: 1em;
+
+		& img {
+			transition: transform .3s;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	& .artwork-title {
+		margin: 0;
+		@extend %sans-1;
+		line-height: 1.4;
+	}
+
+	& .artwork-detail {
+		margin: 0;
+		@extend %sans-1;
+		line-height: 1.4;
+	}
+}
+
+
+.artwork.is-highlight {
+	box-sizing: border-box;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	& > a {
+		text-decoration: none;
+		display: block;
+		animation: fadeInDown .6s;
+        animation-fill-mode: both;
+        animation-delay: 1s;
+	}
+
+	& .artwork-subtitle {
+		@extend %sans-4;
+		margin-bottom: .6em;
+	}
+
+	& .artwork-details {
+		& img {
+			float: left;
+			margin-right: 1em;
+		}
+		& p {
+			margin: .3em 0;
+		}
+	}
+}
+
+
+/* Deshabilitar transicións en dispositivos táctiles para evitar saltos */
+html.is-touch {
+	& .artwork.is-timeline {
+		& a,
+		& img {
+			transition: none;
+		}
+	}
+
+	& .artwork.is-list {
+		& a,
+		& .artwork-figure img,
+		& .artwork-header > *,
+		& .artwork-header > * {
+			transition: none;
+		}
+
+		& .artwork-header:hover > * {
+			transition: none;
+			transform: none;
+		}
+
+		& .artwork-subtitle {
+			display: none;
+		}
+	}
+
+	& .artwork.is-suggestion,
+	& .artwork.is-suggestion .artwork-image img {
+		transition: none;
+	}
+}

@@ -1,0 +1,27 @@
+.ly-home {
+    @extend %sticky-bottom-strong;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+.ly-home-content {
+    flex: 1 1 auto;
+    padding: 8rem var(--size-gap-columns) 4rem var(--size-gap-columns);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 48rem;
+    align-self: center;
+}
+
+.ly-home-subscribe {
+    padding: 1rem;
+
+    @media (--from-width-1) {
+        padding: 0;
+    }
+}

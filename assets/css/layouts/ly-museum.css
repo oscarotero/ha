@@ -1,0 +1,82 @@
+.ly-museum {
+    @extend %sticky-bottom;
+    display: grid;
+    grid-column-gap: var(--size-gap-columns);
+    grid-row-gap: var(--size-gap-rows);
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    grid-template-columns: 0 1fr 0;
+    grid-template-rows: 4rem auto auto 50vh auto 4rem;
+    justify-content: space-between;
+    align-content: space-between;
+    grid-template-areas: '. . .'
+                         '. header .'
+                         '. artworks .'
+                         'map map map'
+                         'museums museums museums'
+                         '. . .';
+
+    &.has-no-museums {
+        grid-template-rows: 4rem auto auto 50vh;
+        grid-template-areas: '. . .'
+                         '. header .'
+                         '. artworks .'
+                         'map map map';
+    }
+
+    @media (--from-width-4) {
+        grid-template-columns: 30vw minmax(auto, 90rem) 0;
+        grid-template-rows: 4rem auto auto auto 4rem;
+        grid-template-areas: 'map . .'
+                             'map header .'
+                             'map artworks .'
+                             'map museums .'
+                             'map . .';
+
+        & .ly-museum-map {
+            max-height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        &.has-no-museums {
+            grid-template-rows: 4rem auto auto 4rem;
+            grid-template-areas: 'map . .'
+                                 'map header .'
+                                 'map artworks .'
+                                 'map . .';
+        }
+    }
+}
+.ly-museum-header {
+    grid-area: header;
+}
+.ly-museum-artworks {
+    grid-area: artworks;
+}
+.ly-museum-museums {
+    grid-area: museums;
+}
+.ly-museum-map {
+    grid-area: map;
+}
+
+.anim-transition .ly-museum {
+    & .ly-museum-header,
+    & .ly-museum-artworks,
+    & .ly-museum-museums {
+        animation: fadeInDown .9s;
+        animation-fill-mode: both;
+    }
+
+    & .ly-museum-header {
+        animation-delay: 0;
+    }
+    & .ly-museum-artworks {
+        animation-delay: .3s;
+    }
+    & .ly-museum-museums {
+        animation-delay: .6s;
+    }
+}

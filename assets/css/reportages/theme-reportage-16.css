@@ -1,0 +1,29 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+Algunos famosos artistas (que no artistas famosos)
+*/
+
+.tm-reportage-16 {
+    --accent-color: hsl(30, 100%, 50%);
+
+	& .reportage-header {
+		& p {
+			color: var(--accent-color);
+		}
+	}
+
+	& .reportage-body {
+		& h2 {
+			grid-column: 1 / -1;
+			text-align: center;
+			border-top: solid 10px var(--accent-color);
+			padding: var(--size-gap-rows) var(--size-gap-columns);
+		}
+
+		& figcaption {
+			text-align: center;
+		}
+	}
+}

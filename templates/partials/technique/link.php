@@ -1,0 +1,1 @@
+<a href="<?= $this->url('technique-permalink', ['slug' => $technique->slug]) ?>"><?= $technique->name ?></a>

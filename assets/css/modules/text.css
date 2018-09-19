@@ -1,0 +1,34 @@
+.text-body {
+	@extend %body-text-ungrouped;
+}
+body.has-text-permalink {
+}
+.text.is-permalink {
+	& .text-title {
+		@extend %sans-4;
+		margin: 0;
+	}
+
+	& .text-menu {
+		& ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		& a {
+			display: block;
+			text-decoration: none;
+			@extend %sans-2;
+			font-weight: bold;
+			padding: .3em .6em;
+			margin-bottom: 1px;
+		}
+
+		& .is-selected a,
+		& a:hover {
+			background: var(--foreground-color);
+			color: var(--background-color);
+		}
+	}
+}

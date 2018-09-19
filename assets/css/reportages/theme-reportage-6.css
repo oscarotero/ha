@@ -1,0 +1,100 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+
+/*
+Artos de cierta arte
+*/
+
+.tm-reportage-6 {
+    --accent-color: hsl(180, 90%, 50%);
+
+	@extend %reportage-big-header;
+
+	& .reportage-header {
+		min-height: 100vh;
+		box-sizing: border-box;
+		color: white;
+	}
+
+	& .reportage-title {
+		text-transform: uppercase;
+		background-color: var(--background-color);
+		max-width: 6em;
+	}
+
+	& .reportage-subtitle {
+		background-color: var(--accent-color);
+		color: var(--background-color);
+		max-width: 18em;
+		padding: 1em;
+	}
+
+	& .reportage-body {
+		&::before {
+			content: '';
+			display: block;
+			height: 50vh;
+			background-image: var(--main-image);
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			grid-column: 1 / -1;
+			margin-bottom: var(--size-gap-rows);
+		}
+
+		& h2 {
+			text-transform: uppercase;
+			background-color: var(--accent-color);
+			display: inline-block;
+			color: var(--background-color);
+		}
+
+		& blockquote {
+			background-color: var(--accent-color);
+			padding: 1em;
+		}
+
+		& figure {
+			position: relative;
+		}
+
+		& figcaption {
+			background-color: var(--accent-color);
+			color: var(--background-color);
+			display: inline-block;
+			padding: .6em;
+			position: absolute;
+			bottom: 0;
+			margin-bottom: 0;
+
+			& p {
+				margin: 0;
+			}
+		}
+
+		& section:nth-of-type(1),
+		& section:nth-of-type(2),
+		& section:nth-of-type(3) {
+			@extend %reportage-section-box;
+
+			& img {
+				width: 100vw;
+			}
+
+			& figure:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		& section:nth-of-type(2) {
+			border: solid 10px var(--accent-color);
+		}
+
+		& section:nth-of-type(1),
+		& section:nth-of-type(3) {
+			background-color: var(--foreground-color);
+			color: var(--background-color);
+		}
+	}
+}

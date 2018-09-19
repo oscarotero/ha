@@ -1,0 +1,22 @@
+.ly-reportages {
+    @extend %sticky-bottom;
+    padding-top: 4rem;
+    display: grid;
+    grid-template-rows: auto 4rem;
+    grid-template-columns: 0 1fr 0;
+    grid-column-gap: var(--size-gap-columns);
+    grid-row-gap: var(--size-gap-rows);
+    min-height: 100vh;
+    width: 100%;
+}
+
+.ly-reportages-list {
+    grid-area: 1 / 2;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    grid-column-gap: var(--size-gap-columns);
+    grid-row-gap: var(--size-gap-rows);
+}

@@ -1,0 +1,41 @@
+@import "./ly-reportage.css";
+
+.ly-reportage {
+    grid-template-areas: ". . ."
+                         ". header ."
+                         ". content ."
+                         ". . .";
+
+    @media (--from-width-4) {
+        grid-template-columns: 1fr minmax(28rem, 48rem) minmax(28rem, 48rem) 1fr;
+        grid-template-rows: 0 minmax(auto, 90vh) 1fr 0;
+        grid-template-areas: ". . . ."
+                             ". header content ."
+                             ". . content ."
+                             ". . . .";
+
+        & .ly-reportage-header {
+            position: sticky;
+            top: calc(2rem + var(--size-gap-rows));
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        & .ly-reportage-body {
+            margin-top: calc(4rem + var(--size-gap-rows));
+        }
+
+         & .section-code.is-responsive {
+            & iframe {
+                height: 30vw;
+                max-height: 415px;
+            }
+        }
+    }
+}
+
+.ly-reportage-header {
+    padding-bottom: var(--size-gap-rows);
+}

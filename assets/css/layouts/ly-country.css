@@ -1,0 +1,134 @@
+.ly-country {
+    @extend %sticky-bottom;
+    display: grid;
+    grid-column-gap: var(--size-gap-columns);
+    grid-row-gap: var(--size-gap-rows);
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    grid-template-columns: 0 1fr 0;
+    grid-template-rows: 4rem auto auto auto 60vh;
+    justify-content: space-between;
+    align-content: space-between;
+    grid-template-areas: '. . .'
+                         '. artworks .'
+                         '. artists .'
+                         '. museums .'
+                         'map map map';
+
+    &.has-no-artworks {
+        grid-template-rows: 4rem auto auto 60vh;
+        grid-template-areas: '. . .'
+                             '. artists .'
+                             '. museums .'
+                             'map map map';
+    }
+
+    &.has-no-museums {
+        grid-template-rows: 4rem auto auto 0;
+        grid-template-areas: '. . .'
+                             '. artworks .'
+                             '. artists .'
+                             '. . .';
+    }
+
+    &.has-no-artworks.has-no-artists {
+        grid-template-rows: 4rem auto 60vh;
+        grid-template-areas: '. . .'
+                             '. museums .'
+                             'map map map';
+    }
+
+    @media (--from-width-2) {
+        &.has-no-artworks {
+            grid-template-rows: 4rem auto 60vh;
+            grid-template-columns: 0 1fr 1fr 0;
+            grid-template-areas: '. . . .'
+                                 '. artists museums .'
+                                 'map map map map';
+        }
+
+        &.has-no-artworks.has-no-artists {
+            grid-template-rows: 4rem auto 60vh;
+            grid-template-columns: 0 1fr 0;
+            grid-template-areas: '. . .'
+                                 '. museums .'
+                                 'map map map';
+        }
+    }
+
+    @media (--from-width-4) {
+        grid-template-rows: 4rem auto auto auto 4rem;
+        grid-template-columns: 30vw minmax(auto, 90rem) 0;
+        grid-template-areas: 'map . .'
+                             'map artworks .'
+                             'map artists .'
+                             'map museums .'
+                             'map . .';
+
+        & .ly-country-map {
+            max-height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        &.has-no-artworks {
+            grid-template-rows: 4rem auto 4rem;
+            grid-template-columns: 30vw 1fr 1fr 0;
+            grid-template-areas: 'map . . .'
+                                 'map artists museums .'
+                                 'map . . .';
+        }
+
+        &.has-no-museums {
+            grid-template-rows: 4rem auto auto 1fr;
+            grid-template-columns: 0 1fr 0;
+            grid-template-areas: '. . .'
+                                 '. artworks .'
+                                 '. artists .'
+                                 '. . .';
+        }
+
+        &.has-no-artworks.has-no-artists {
+            grid-template-columns: 30vw 1fr 0;
+            grid-template-rows: 4rem auto 4rem;
+            grid-template-areas: 'map . .'
+                                 'map museums .'
+                                 'map . .';
+        }
+    }
+}
+.ly-country-header {
+    display: none;
+}
+.ly-country-artworks {
+    grid-area: artworks;
+}
+.ly-country-artists {
+    grid-area: artists;
+}
+.ly-country-museums {
+    grid-area: museums;
+}
+.ly-country-map {
+    grid-area: map;
+}
+
+.anim-transition .ly-country {
+    & .ly-country-museums,
+    & .ly-country-artists,
+    & .ly-country-artworks {
+        animation: fadeInDown .9s;
+        animation-fill-mode: both;
+    }
+
+    & .ly-country-artworks {
+        animation-delay: .3s;
+    }
+    & .ly-country-artists {
+        animation-delay: .6s;
+    }
+    & .ly-country-museums {
+        animation-delay: .9s;
+    }
+}

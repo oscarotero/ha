@@ -1,0 +1,93 @@
+.ly-tag {
+    @extend %sticky-bottom;
+    display: grid;
+    grid-column-gap: var(--size-gap-columns);
+    grid-row-gap: var(--size-gap-rows);
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    grid-template-columns: 0 1fr 0;
+    grid-template-rows: 4rem auto auto auto 0;
+    justify-content: space-between;
+    align-content: space-between;
+    grid-template-areas: '. . .'
+                         '. artworks .'
+                         '. artists .'
+                         '. reportages .'
+                         '. . .';
+
+    &.has-no-artists {
+        grid-template-rows: 4rem auto auto 0;
+        grid-template-areas: '. . .'
+                             '. artworks .'
+                             '. reportages .'
+                             '. . .';
+    }
+
+    &.has-no-artists.has-no-artworks {
+        grid-template-rows: 4rem auto 0;
+        grid-template-areas: '. . .'
+                             '. reportages .'
+                             '. . .';
+    }
+
+    @media (--from-width-4) {
+        grid-template-columns: 0 minmax(auto, 90rem) 0;
+        grid-template-rows: 4rem auto auto auto 4rem;
+        grid-template-areas: '. . . .'
+                             '. artworks .'
+                             '. artists .'
+                             '. reportages .'
+                             '. . . .';
+
+        &.has-no-artists {
+            grid-template-rows: 4rem auto auto 4rem;
+            grid-template-areas: '. . .'
+                                 '. artworks .'
+                                 '. reportages .'
+                                 '. . .';
+        }
+
+        &.has-no-artists.has-no-artworks {
+            grid-template-rows: 4rem auto 4rem;
+            grid-template-areas: '. . .'
+                                 '. reportages .'
+                                 '. . .';
+        }
+    }
+}
+
+.ly-tag-header {
+    display: none;
+}
+
+.ly-tag-artworks {
+    grid-area: artworks;
+}
+
+.ly-tag-artists {
+    grid-area: artists;
+}
+
+.ly-tag-reportages {
+    grid-area: reportages;
+}
+
+.anim-transition .ly-tag {
+    & .ly-tag-artworks,
+    & .ly-tag-artists,
+    & .ly-tag-reportages {
+        animation: fadeInDown .9s;
+        animation-fill-mode: both;
+    }
+
+    & .ly-tag-artworks {
+        animation-delay: 0;
+    }
+    & .ly-tag-artists {
+        animation-delay: .3s;
+    }
+    & .ly-tag-reportages {
+        animation-delay: .6s;
+    }
+}

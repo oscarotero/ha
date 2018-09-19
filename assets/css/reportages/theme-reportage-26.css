@@ -1,0 +1,40 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+La serpiente escondida en el Vaticano
+*/
+
+.tm-reportage-26 {
+    --accent-color: hsl(130, 80%, 60%);
+	--color-1: var(--background-color);
+	--color-2: var(--foreground-color);
+	@extend %reportage-big-header;
+	padding-bottom: var(--size-gap-rows);
+
+	& .reportage-header {
+		background-image: linear-gradient(var(--foreground-color), var(--foreground-color)), var(--main-image);
+		background-blend-mode: hard-light;
+		background-size: cover;
+		background-position: center;
+		min-height: 100vh;
+		box-sizing: border-box;
+		color: var(--background-color);
+	}
+
+	& .reportage-title {
+		max-width: 48rem;
+	}
+
+	& .reportage-subtitle {
+		max-width: 48rem;
+		color: var(--accent-color);
+	}
+
+	& .reportage-body {
+		& > section:nth-of-type(1) {
+			@extend %reportage-section-box;
+			background: var(--accent-color);
+		}
+	}
+}

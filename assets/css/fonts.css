@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Solitas';
+    font-display: swap;
+    src: url('/fonts/solitas-regular.woff2') format('woff2'),
+         url('/fonts/solitas-regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'Solitas';
+    font-display: swap;
+    src: url('/fonts/solitas-italic.woff2') format('woff2'),
+         url('/fonts/solitas-italic.woff') format('woff');
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Solitas';
+    font-display: swap;
+    src: url('/fonts/solitas-bold.woff2') format('woff2'),
+         url('/fonts/solitas-bold.woff') format('woff');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Archia';
+    font-display: swap;
+    src: url('/fonts/archia-regular.woff2') format('woff2'),
+         url('/fonts/archia-regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'Archia';
+    font-display: swap;
+    src: url('/fonts/archia-bold.woff2') format('woff2'),
+         url('/fonts/archia-bold.woff') format('woff');
+    font-weight: bold;
+}

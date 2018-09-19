@@ -1,0 +1,80 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+100 años de Dadá
+*/
+
+.tm-reportage-1.is-permalink {
+    --accent-color: hsl(10, 100%, 40%);
+
+	@extend %reportage-big-header;
+	background-image: var(--main-image);
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+
+	& .reportage-header {
+		box-sizing: border-box;
+		background: var(--background-color);
+		min-height: calc(100vh - 8rem);
+		margin-top: 4rem;
+	}
+
+	& .reportage-title {
+		color: var(--accent-color);
+		text-transform: uppercase;
+		font-size: 18vw;
+		line-height: .8;
+		margin: 0;
+	}
+
+	& .reportage-subtitle {
+		margin-top: 0;
+	}
+
+	& .reportage-body {
+		background: var(--background-color);
+		margin-top: 66vh;
+
+
+		& > .section-image:first-child {
+			margin-top: -10vh;
+			margin-bottom: 0;
+			margin-left: calc(var(--size-gap-columns) * -1);
+			width: calc(100% + var(--size-gap-columns) * 2);
+
+			& figcaption {
+				display: none;
+			}
+		}
+
+		& h2 {
+			border-bottom: solid 10px var(--foreground-color);
+			padding-bottom: var(--size-gap-rows);
+			margin-bottom: var(--size-gap-rows);
+		}
+
+		& div:first-of-type > p:first-of-type::first-letter {
+			@extend %capitular;
+			color: var(--accent-color);
+		}
+
+		& img {
+			width: 100%;
+			display: block;
+		}
+
+		& figcaption {
+			color: var(--background-color);
+			background-color: var(--foreground-color);
+			padding: 1em;
+			margin-top: 0;
+
+
+			& p {
+				margin: 0;
+			}
+		}
+	}
+}

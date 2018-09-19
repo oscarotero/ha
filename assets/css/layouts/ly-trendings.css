@@ -1,0 +1,28 @@
+.ly-trendings {
+    @extend %sticky-bottom;
+    display: grid;
+    grid-column-gap: var(--size-gap-columns);
+    grid-row-gap: var(--size-gap-rows);
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: 0 1fr 0;
+    grid-template-rows: 4rem 1fr 4rem;
+    grid-template-areas: '. . .'
+                         '. content .'
+                         '. . .';
+}
+
+.ly-trendings-content {
+    grid-area: content;
+    align-self: center;
+}
+
+.anim-transition .ly-trendings {
+    & .ly-trendings-content {
+        animation: fadeInDown .9s;
+        animation-fill-mode: both;
+        animation-delay: .3s;
+    }
+}

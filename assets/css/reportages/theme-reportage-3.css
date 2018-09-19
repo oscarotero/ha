@@ -1,0 +1,51 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-2cols.css';
+
+/*
+La bauhaus
+*/
+
+.tm-reportage-3 {
+    --accent-color: hsl(10, 70%, 50%);
+
+	& .reportage-title {
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="180px" height="580px" viewBox="0 0 180 580" fill="%23F0EBE5"><rect y="68" width="75" height="72"/><rect x="165" width="15" height="400"/><rect x="135" y="400" width="30" height="120"/><rect x="85" y="520" width="50" height="60"/><rect x="105" y="445" width="60" height="10"/></svg>');
+		background-repeat: no-repeat;
+		background-size: auto 25vh;
+		background-color: var(--foreground-color);
+		background-position: center top;
+		color: var(--background-color);
+		text-transform: uppercase;
+		padding: .3em;
+		padding-top: calc(25vh + .3em);
+	}
+
+	& .reportage-body {
+		&::after {
+			content: '';
+			display: block;
+			height: 400px;
+			max-height: 60vh;
+			background-image: var(--main-image);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center top;
+			grid-column: 1 / -1;
+		}
+
+		& section:nth-of-type(1) {
+			@extend %reportage-section-box;
+			background-color: hsl(10, 85%, 85%);
+		}
+
+		& section:nth-of-type(2) {
+			@extend %reportage-section-box;
+			background-color: hsl(50, 85%, 70%);
+		}
+
+		& section:nth-of-type(3) {
+			@extend %reportage-section-box;
+			background-color: white;
+		}
+	}
+}

@@ -1,0 +1,60 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+Las portadas de Hipgnosis
+*/
+
+.tm-reportage-28.reportage {
+    --accent-color: var(--foreground-color);
+	@extend %reportage-big-header;
+	padding-bottom: var(--size-gap-rows);
+	background: linear-gradient(to bottom, black, #131114, #2a3a5e, #482231, #4d0100, #222328, #1c3a7b) black;
+
+	& .reportage-header {
+		color: var(--foreground-color);
+		background-image: var(--main-image);
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center;
+		min-height: 100vh;
+		box-sizing: border-box;
+	}
+
+	& .reportage-title {
+		max-width: 48rem;
+		background: var(--background-color);
+		padding: 1em 1rem 0 1rem;
+		box-sizing: border-box;
+		width: 100%;
+		z-index: 2;
+	}
+
+	& .reportage-subtitle {
+		max-width: 48rem;
+		background: var(--background-color);
+		color: white;
+		padding: 1em 1rem;
+		margin-top: 0;
+		box-sizing: border-box;
+		width: 100%;
+	}
+
+	& .reportage-nav {
+		margin-top: 0;
+		max-width: 48rem;
+		box-sizing: border-box;
+		width: 100%;
+	}
+
+	& .reportage-body {
+		color: white;
+	}
+
+	& .taxonomy-info {
+		background-color: var(--background-color);
+		padding: 1em;
+		width: 100%;
+		box-sizing: border-box;
+	}
+}

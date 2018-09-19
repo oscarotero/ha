@@ -1,0 +1,46 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+Los prerrafaelitas, vanguardistas victorianos
+*/
+
+.tm-reportage-19 {
+    --accent-color: hsl(130, 50%, 60%);
+    padding-bottom: var(--size-gap-rows);
+    
+	& .reportage-title {
+		background-color: var(--foreground-color);
+		background-image: var(--main-image);
+		background-position: center;
+		background-size: cover;
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	& .reportage-body {
+		& h2 {
+			color: var(--accent-color);
+
+			& em {
+				font-weight: normal;
+				font-family: var(--font-serif);
+			}
+		}
+
+		& section:first-of-type {
+			@extend %reportage-section-box;
+			background-color: var(--accent-color);
+
+			& h2 {
+				color: var(--background-color);
+			}
+		}
+
+		& section:nth-of-type(7) {
+			@extend %reportage-section-box;
+			border: solid 10px var(--accent-color);
+		}
+	}
+}

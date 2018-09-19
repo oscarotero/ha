@@ -1,0 +1,55 @@
+.ly-search {
+    @extend %sticky-bottom;
+    display: grid;
+    grid-template-columns: 0 1fr 0;
+    grid-column-gap: var(--size-gap-columns);
+    grid-row-gap: var(--size-gap-rows);
+    align-content: start;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    grid-template-rows: 4rem auto 1fr 0;
+    grid-template-areas: '. . .'
+                         '. form .'
+                         '. result .'
+                         '. . .';
+
+    @media (--from-width-2) {
+        grid-template-rows: auto 1fr 0;
+        grid-template-areas: '. form .'
+                             '. result .'
+                             '. . .';
+    }
+
+    @media (--from-width-3) {
+        grid-template-rows: 4rem 1fr 0;
+        grid-template-columns: 0 minmax(auto, 18rem) 1fr 0;
+        grid-template-areas: '. form . .'
+                             '. form result .'
+                             '. . . .';
+    }
+}
+
+.ly-search-result {
+    grid-area: result;
+}
+
+.ly-search-form {
+    grid-area: form;
+
+    @media (--from-width-3) and (--from-height-3) {
+
+        & > form {
+            position: sticky;
+            top: var(--size-gap-rows);
+        }
+    }
+}
+
+.anim-transition .ly-search {
+    & .ly-search-form {
+        animation: fadeInDown .9s;
+        animation-fill-mode: both;
+        animation-delay: .3s;
+    }
+}

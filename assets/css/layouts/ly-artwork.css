@@ -1,0 +1,76 @@
+.ly-artwork {
+    @extend %sticky-bottom-strong;
+    display: grid;
+    grid-template-columns: 0 auto 0;
+    grid-column-gap: var(--size-gap-columns);
+    grid-row-gap: var(--size-gap-rows);
+    min-height: 100vh;
+    width: 100%;
+}
+
+.ly-artwork-figure {
+    grid-area: figure;
+}
+
+.ly-artwork-header {
+    grid-area: header;
+    max-width: 40em;
+    text-align: center;
+    justify-self: center;
+}
+
+.ly-artwork-nav {
+    grid-area: nav;
+    max-width: 40em;
+
+    & > footer {
+        top: 7rem;
+    }
+}
+
+.ly-artwork-content {
+    grid-area: content;
+    column-width: 18em;
+    column-gap: 2em;
+    column-fill: balance;
+}
+
+.ly-artwork-figure.has-background img {
+	padding: var(--size-1);
+	box-sizing: border-box;
+
+	@media (--from-width-1) and (--to-width-3) {
+        padding: var(--size-2);
+    }
+
+    @media (--from-width-3) {
+        padding: var(--size-3);
+    }
+}
+
+.anim-transition .ly-artwork {
+    & .ly-artwork-header,
+    & .ly-artwork-nav {
+        animation: fadeInDown .9s;
+        animation-fill-mode: both;
+    }
+
+    & .ly-artwork-figure,
+    & .ly-artwork-content {
+        animation: fadeIn .9s;
+        animation-fill-mode: both;
+    }
+
+    & .ly-artwork-header {
+        animation-delay: 0;
+    }
+    & .ly-artwork-figure {
+        animation-delay: .3s;
+    }
+    & .ly-artwork-nav {
+        animation-delay: .6s;
+    }
+    & .ly-artwork-content {
+        animation-delay: .9s;
+    }
+}

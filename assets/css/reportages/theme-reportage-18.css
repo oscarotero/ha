@@ -1,0 +1,54 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+Art Brut y esquizofrenia
+*/
+
+.tm-reportage-18 {
+    --accent-color: #00d2ff;
+	background-image: var(--main-image);
+	background-repeat: no-repeat;
+	background-position: center top;
+	padding-bottom: var(--size-gap-rows);
+
+	@media (--from-width-4) {
+		background-attachment: fixed;
+	}
+
+	& .reportage-title,
+	& .reportage-subtitle {
+		text-shadow: 10px 10px 0 var(--accent-color),
+					-10px 10px 0 var(--background-color),
+					10px -10px 0 var(--accent-color),
+					-10px -10px 0 var(--background-color);
+
+	}
+
+	& .taxonomy-info {
+		background: var(--background-color);
+	}
+
+	& .reportage-body {
+		background-color: var(--background-color);
+
+		& blockquote {
+			border-left-color: var(--accent-color);
+		}
+
+		& .section-image:nth-of-type(1) img {
+			box-shadow: 0 20px 0 -10px var(--accent-color),
+					0 -20px 0 -10px var(--accent-color);
+		}
+
+		& .section-image:nth-of-type(2) img {
+			box-shadow: 20px 20px 0 -10px var(--accent-color),
+					0 -20px 0 -10px var(--accent-color);
+		}
+
+		& .section-image:nth-of-type(4) img {
+			box-shadow: -20px 20px 0 -10px var(--accent-color),
+					20px -20px 0 -10px var(--accent-color);
+		}
+	}
+}

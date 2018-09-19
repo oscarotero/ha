@@ -1,0 +1,50 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+La revolución rusa y cómo revolucionó el arte moderno
+*/
+
+.tm-reportage-17 {
+    --accent-color: #f93a21;
+	background-image: var(--main-image);
+	background-repeat: no-repeat;
+	background-size: 110% auto;
+	background-attachment: fixed;
+	background-position: center;
+
+	@media (max-aspect-ratio: 3 / 4) {
+		background-size: auto 110%;
+	}
+
+	& .reportage-header {
+		& h1 {
+			color: var(--background-color);
+			background: var(--foreground-color);
+			padding: 1rem;
+		}
+		& p {
+			background-color: var(--accent-color);
+			padding: 1rem;
+		}
+	}
+
+	& .reportage-body {
+		background: var(--background-color);
+		padding-top: var(--size-gap-rows);
+		clip-path: polygon(0 100px, 100% 0, 100% 100%, 0 100%);
+		padding-top: 150px;
+		padding-bottom: var(--size-gap-rows);
+
+		& h2 {
+			border-left: solid 10px var(--accent-color);
+			padding-left: .6em;
+		}
+
+		& > section:nth-of-type(even) {
+			@extend %reportage-section-outbox;
+			background: var(--foreground-color);
+			color: var(--background-color);
+		}
+	}
+}

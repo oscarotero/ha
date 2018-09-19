@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px;
+    padding-left: var(--size-gap-columns);
+
+    & h1 {
+        @extend %sans-2;
+        margin: 0;
+
+        & em {
+            font-family: inherit;
+            font-weight: normal;
+            font-style: normal;
+            text-decoration: inherit;
+            display: inline-block;
+        }
+    }
+
+    @media (--to-width-2) {
+        display: none;
+    }
+}
+
+.subheader {
+	display: flex;
+    align-items: center;
+    margin: 0;
+
+    & h2 {
+        @extend %sans-2;
+        margin: 0 0 1em 0;
+
+        & em {
+			font-family: inherit;
+			font-weight: normal;
+			font-style: normal;
+			text-decoration: inherit;
+			display: inline-block;
+		}
+    }
+}

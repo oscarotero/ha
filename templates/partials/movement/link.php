@@ -1,0 +1,1 @@
+<a href="<?= $this->url('movement-permalink', ['slug' => $movement->slug]) ?>"><?= $movement->name ?></a>

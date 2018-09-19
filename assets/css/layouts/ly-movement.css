@@ -1,0 +1,129 @@
+.ly-movement {
+    @extend %sticky-bottom;
+    display: grid;
+    grid-column-gap: var(--size-gap-columns);
+    grid-row-gap: var(--size-gap-rows);
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    grid-template-columns: 0 1fr 0;
+    grid-template-rows: 4rem auto auto auto auto auto auto 4rem;
+    justify-content: space-between;
+    align-content: space-between;
+    grid-template-areas: '. . .'
+                         '. header .'
+                         'image image image'
+                         '. description .'
+                         '. artworks .'
+                         '. artists .'
+                         '. movements .'
+                         '. . .';
+
+    @media (--from-width-1) {
+        grid-template-areas: '. . .'
+                             '. header .'
+                             '. image .'
+                             '. description .'
+                             '. artworks .'
+                             '. artists .'
+                             '. movements .'
+                             '. . .';
+    }
+
+    @media (--from-width-3) {
+        grid-template-columns: 30vw minmax(auto, 90rem) 0;
+        grid-template-rows: 4rem auto auto auto auto auto 4rem;
+        grid-template-areas: 'image . .'
+                             'image header .'
+                             'image description .'
+                             'image artworks .'
+                             'image artists .'
+                             'image movements .'
+                             'image . .';
+
+        & .ly-movement-image {
+            & img {
+                height: 100vh;
+            }
+
+            & picture {
+                display: block;
+                position: sticky;
+                top: 0;
+            }
+        }
+    }
+
+    @media (--from-width-5) {
+        grid-template-columns: 30vw minmax(auto, 90rem) 18rem 0;
+        grid-template-rows: 4rem auto auto auto auto 4rem;
+        grid-template-areas: 'image . . .'
+                             'image header . .'
+                             'image description movements .'
+                             'image artworks artworks .'
+                             'image artists artists .'
+                             'image . . .';
+    }
+}
+
+.ly-movement-image {
+    grid-area: image;
+
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.ly-movement-header {
+    grid-area: header;
+}
+
+.ly-movement-description {
+    grid-area: description;
+    max-width: 36em;
+}
+
+.ly-movement-artworks {
+    grid-area: artworks;
+}
+
+.ly-movement-artists {
+    grid-area: artists;
+}
+
+.ly-movement-movements {
+    grid-area: movements;
+}
+
+.anim-transition .ly-movement {
+    & .ly-movement-header,
+    & .ly-movement-artists,
+    & .ly-movement-movements,
+    & .ly-movement-artworks {
+        animation: fadeInDown .9s;
+        animation-fill-mode: both;
+    }
+
+    & .ly-movement-image,
+    & .ly-movement-description {
+        animation: fadeIn .9s;
+        animation-fill-mode: both;
+    }
+
+    & .ly-movement-header {
+        animation-delay: 0;
+    }
+    & .ly-movement-image,
+    & .ly-movement-movements {
+        animation-delay: .3s;
+    }
+    & .ly-movement-artworks,
+    & .ly-movement-artists {
+        animation-delay: .6s;
+    }
+    & .ly-movement-description {
+        animation-delay: .9s;
+    }
+}

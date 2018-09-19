@@ -1,0 +1,27 @@
+@import "./ly-reportage.css";
+
+.ly-reportage {
+    grid-template-rows: 0 auto 1fr;
+    grid-template-areas: ". . ."
+                         ". header ."
+                         "content content content";
+}
+
+.ly-reportage-header {
+    padding-bottom: var(--size-gap-rows);
+}
+
+.ly-reportage-body {
+    grid-template-columns: 1fr minmax(auto, 48rem) 1fr;
+    grid-column-gap: var(--size-gap-columns);
+
+    & > * {
+        grid-column-start: 2;
+    }
+
+    & .section-code.is-responsive,
+    & .section-gallery {
+        grid-column-start: 1;
+        grid-column-end: span 3;
+    }
+}

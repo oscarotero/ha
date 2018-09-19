@@ -1,0 +1,39 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-2cols.css';
+
+/*
+Arte degenerado
+*/
+
+.tm-reportage-2 {
+    --accent-color: #d70134;
+
+	& .reportage-header {
+		& p {
+			color: var(--accent-color);
+		}
+	}
+
+	/*& .reportage-title::after {
+		content: '';
+		display: block;
+		height: 140px;
+		width: 300px;
+		background-image: var(--main-image);
+		background-size: 310px auto;
+		background-repeat: no-repeat;
+		background-position: center top;
+		grid-column: 1 / -1;
+		margin: var(--size-gap-rows) auto 0;
+	}*/
+
+	& .reportage-body {
+		& blockquote {
+			@extend %reportage-blockquote-box;
+			@extend %sans-2;
+			background-color: var(--accent-color);
+			color: var(--background-color);
+			font-style: normal;
+		}
+	}
+}

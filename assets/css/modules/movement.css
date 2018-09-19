@@ -1,0 +1,215 @@
+.movement {
+
+}
+.movement-image {
+	object-fit: cover;
+}
+
+.movement-description {
+	@extend %body-text-ungrouped;
+}
+
+.movement.is-list {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+
+	& .movement-header {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-shadow: 0 0 2px black;
+		text-align: center;
+		color: white;
+		padding: 1rem .3rem;
+		box-sizing: border-box;
+		word-break: break-all;
+	}
+
+	& .movement-title {
+		@extend %sans-2;
+		margin: 0;
+	}
+
+	& .movement-image {
+		width: 100%;
+		height: 100%;
+		transition: transform .6s, filter .3s;
+		filter: saturate(40%) brightness(0.6);
+	}
+
+	& .movement-years {
+		margin: 0;
+		@extend %sans-1;
+	}
+
+	& > a {
+		display: block;
+		position: relative;
+		width: 100%;
+		height: 100%;
+
+		&:hover {
+			& .movement-image {
+				border-color: white;
+				transform: scale(1.2, 1.2);
+				filter: none;
+			}
+		}
+	}
+}
+
+.movement.is-permalink {
+	& .movement-title {
+		@extend %sans-4;
+		margin: 0;
+	}
+	& .movement-years {
+		@extend %sans-2;
+		margin: 0;
+	}
+
+	& .movement-image {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.movement-search-list {
+	@extend %sans-1;
+	margin: 0 0 1.6em 0;
+	padding-left: 1.2em;
+	column-width: 18em;
+    column-gap: 2em;
+    column-fill: balance;
+
+	& li {
+		margin-bottom: .2em;
+	}
+
+	& a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+/* Timeline */
+body.has-movements-timeline {
+	& .navbar {
+		background: var(--background-color);
+	}
+}
+.movements-timeline-years {
+	display: grid;
+	grid-auto-columns: 10px;
+
+	& strong {
+		grid-column-end: span 10;
+		grid-row: 1;
+		color: var(--foreground-color);
+		background: var(--background-color);
+		border-bottom: solid 1px;
+	}
+}
+.movements-timeline-content {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	grid-auto-columns: 10px;
+	grid-auto-rows: 4rem;
+	grid-row-gap: 1rem;
+
+	/*grid-auto-flow: dense;*/
+}
+
+.movement.is-timeline {
+	background: white;
+	display: flex;
+
+	& > a {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		position: sticky;
+		left: 0;
+	}
+
+	& .movement-header {
+		padding: 1em;
+		order: 2;
+		position: absolute;
+		left: 100%;
+	}
+
+	& .movement-image {
+		flex: 0 0 4rem;
+		height: 4rem;
+		object-fit: cover;
+	}
+
+	& .movement-name {
+		margin: 0;
+		@extend %sans-1;
+		white-space: nowrap;
+	}
+
+	& .movement-years {
+		margin: 0;
+		white-space: nowrap;
+	}
+}
+
+.movement-related-list {
+	@extend %grid-background-images;
+}
+
+.movement.is-suggestion {
+	display: block;
+	position: relative;
+	min-height: 100px;
+	overflow: hidden;
+
+	& .movement-title {
+		@extend %sans-1;
+		margin: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		mix-blend-mode: all;
+		color: white;
+		text-shadow: 0 0 2px black;
+		text-align: center;
+		line-height: 1.4;
+	}
+
+	& .movement-image {
+		width: 100%;
+		transition: transform .6s, filter .3s;
+		filter: saturate(40%) brightness(0.6);
+	}
+
+	&:hover {
+		& .movement-image {
+			border-color: white;
+			transform: scale(1.2, 1.2);
+			filter: none;
+		}
+	}
+}

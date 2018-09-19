@@ -1,0 +1,101 @@
+@custom-media --to-width-1 (max-width: 23.99rem);
+@custom-media --to-height-1 (max-height: 23.99rem);
+@custom-media --from-width-1 (min-width: 24rem);
+@custom-media --from-height-1 (min-height: 24rem);
+
+@custom-media --to-width-2 (max-width: 39.99rem);
+@custom-media --to-height-2 (max-height: 39.99rem);
+@custom-media --from-width-2 (min-width: 40rem);
+@custom-media --from-height-2 (min-height: 40rem);
+
+@custom-media --to-width-3 (max-width: 59.99rem);
+@custom-media --to-height-3 (max-height: 59.99rem);
+@custom-media --from-width-3 (min-width: 60rem);
+@custom-media --from-height-3 (min-height: 60rem);
+
+@custom-media --to-width-4 (max-width: 79.99rem);
+@custom-media --to-height-4 (max-height: 79.99rem);
+@custom-media --from-width-4 (min-width: 80rem);
+@custom-media --from-height-4 (min-height: 80rem);
+
+@custom-media --to-width-5 (max-width: 99.99rem);
+@custom-media --to-height-5 (max-height: 99.99rem);
+@custom-media --from-width-5 (min-width: 100rem);
+@custom-media --from-height-5 (min-height: 100rem);
+
+@custom-media --to-width-6 (max-width: 119.99rem);
+@custom-media --from-width-6 (min-width: 120rem);
+
+:root {
+    --font-serif: Solitas, Cambria, Georgia, serif;
+    --font-sans: Archia, Helvetica, Arial, sans-serif;
+    --font-system: system-ui, sans-serif;
+
+    --base-foreground-color: hsl(200, 100%, 15%);
+    --base-background-color: hsl(50, 50%, 97%);
+    --foreground-color: hsl(200, 100%, 15%);
+    --background-color: hsl(50, 50%, 97%);
+    --accent-color: #cc0066;
+
+    --ratio: 1.25;
+
+    --size-1: 1rem;
+    --size-2: calc(var(--size-1) * var(--ratio));
+    --size-3: calc(var(--size-2) * var(--ratio));
+    --size-4: calc(var(--size-3) * var(--ratio));
+    --size-5: calc(var(--size-4) * var(--ratio));
+    --size-6: calc(var(--size-5) * var(--ratio));
+    --size-7: calc(var(--size-6) * var(--ratio));
+    --size-8: calc(var(--size-7) * var(--ratio));
+    --size-9: calc(var(--size-8) * var(--ratio));
+    --size-10: calc(var(--size-9) * var(--ratio));
+
+    --size-1a: 1.15rem;
+    --size-2a: calc(var(--size-1a) * var(--ratio));
+    --size-3a: calc(var(--size-2a) * var(--ratio));
+    --size-4a: calc(var(--size-3a) * var(--ratio));
+    --size-5a: calc(var(--size-4a) * var(--ratio));
+
+    --size-gap-columns: var(--size-1);
+    --size-gap-rows: var(--size-3);
+
+    /* Paso 1 */
+    @media (--from-width-1) and (--from-height-1) {
+        --ratio: 1.37;
+        --size-1a: 1.2rem;
+    }
+
+    /* Paso 2 */
+    @media (--from-width-2) {
+        --size-gap-columns: var(--size-2);
+    }
+
+    @media (--from-height-2) {
+        --size-gap-rows: var(--size-4);
+    }
+
+    @media (--from-width-2) and (--from-height-2) {
+        --ratio: 1.49;
+        --size-1a: 1.25rem;
+    }
+
+    /* Paso 3 */
+    @media (--from-width-3) {
+        --size-gap-columns: var(--size-3);
+    }
+
+    @media (--from-width-3) and (--from-height-3) {
+        --ratio: 1.618;
+        --size-1a: 1.30rem;
+    }
+
+    /* Paso 4 */
+    @media (--from-width-4) {
+        --size-gap-columns: var(--size-4);
+    }
+
+    /* Paso 5 */
+    @media (--from-width-5) {
+        --size-gap-columns: var(--size-5);
+    }
+}

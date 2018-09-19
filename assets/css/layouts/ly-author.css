@@ -1,0 +1,121 @@
+.ly-author {
+    @extend %sticky-bottom;
+    display: grid;
+    grid-column-gap: var(--size-gap-columns);
+    grid-row-gap: var(--size-gap-rows);
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    grid-template-columns: 0 1fr 0;
+    grid-template-rows: 4rem auto auto auto auto 0;
+    justify-content: space-between;
+    align-content: space-between;
+    grid-template-areas: '. . .'
+                         '. header .'
+                         '. artworks .'
+                         '. artists .'
+                         '. reportages .'
+                         '. . .';
+
+    &.has-no-artists {
+        grid-template-rows: 4rem auto auto auto 0;
+        grid-template-areas: '. . .'
+                             '. header .'
+                             '. artworks .'
+                             '. reportages .'
+                             '. . .';
+    }
+
+    &.has-no-artists.has-no-artworks {
+        grid-template-rows: 4rem auto auto 0;
+        grid-template-areas: '. . .'
+                             '. header .'
+                             '. reportages .'
+                             '. . .';
+    }
+
+    @media (--from-width-4) {
+        grid-template-columns: 0 minmax(auto, 90rem) 0;
+        grid-template-rows: 4rem auto auto auto auto 4rem;
+        grid-template-areas: '. . .'
+                             '. header .'
+                             '. artworks .'
+                             '. artists .'
+                             '. reportages .'
+                             '. . .';
+
+        &.has-no-artists {
+            grid-template-rows: 4rem auto auto auto 4rem;
+            grid-template-areas: '. . .'
+                                 '. header .'
+                                 '. artworks .'
+                                 '. reportages .'
+                                 '. . .';
+        }
+
+        &.has-no-artists.has-no-artworks {
+            grid-template-rows: 4rem auto auto 4rem;
+            grid-template-areas: '. . .'
+                                 '. header .'
+                                 '. reportages .'
+                                 '. . .';
+        }
+
+        & .ly-author-body {
+            justify-self: end;
+        }
+    }
+}
+
+.ly-author-header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-gap: 1em;
+    grid-template-areas: 'image header'
+                         'image body';
+
+    & > .ly-author-header-image {
+        grid-area: image;
+    }
+    & > .ly-author-header-header {
+        grid-area: header;
+        align-self: end;
+        max-width: 45rem;
+    }
+    & > .ly-author-header-body {
+        grid-area: body;
+        max-width: 45rem;
+    }
+}
+
+.ly-author-artworks {
+    grid-area: artworks;
+}
+
+.ly-author-artists {
+    grid-area: artists;
+}
+
+.ly-author-reportages {
+    grid-area: reportages;
+}
+
+.anim-transition .ly-author {
+    & .ly-author-artworks,
+    & .ly-author-artists,
+    & .ly-author-reportages {
+        animation: fadeInDown .9s;
+        animation-fill-mode: both;
+    }
+
+    & .ly-author-artworks {
+        animation-delay: 0;
+    }
+    & .ly-author-artists {
+        animation-delay: .3s;
+    }
+    & .ly-author-reportages {
+        animation-delay: .6s;
+    }
+}

@@ -1,0 +1,25 @@
+.emptyState {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	box-sizing: border-box;
+	@extend %sans-1;	
+	padding: var(--size-gap-rows) var(--size-gap-columns);
+	background-color: color-mod(black a(.05));
+	text-align: center;
+
+	& p {
+		max-width: 18rem;
+	}
+
+	& h2 {
+		@extend %sans-2;
+		max-width: 18rem;
+
+		& em {
+			font-weight: normal;
+		}
+	}
+}

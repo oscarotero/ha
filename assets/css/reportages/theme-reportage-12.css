@@ -1,0 +1,49 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+4 artistas que nunca existieron
+*/
+
+.tm-reportage-12 {
+    --accent-color: hsl(337.3, 56.9%, 32.7%);
+
+	& .reportage-subtitle {
+		color: var(--accent-color);
+	}
+
+	& .reportage-body {
+
+		@media (--from-width-4) {
+			grid-row-gap: 0;
+		}
+
+		& img {
+			border: solid 10px var(--background-color);
+		}
+
+		& section {
+			@extend %reportage-section-title_body;
+		}
+
+		& section:nth-of-type(1) {
+			background-color: hsl(127.7, 44.8%, 94.3%);
+			color: hsl(237.3, 56.9%, 32.7%);
+		}
+
+		& section:nth-of-type(2) {
+			background-color: hsl(40, 45.2%, 85.7%);
+			color: hsl(337.3, 56.9%, 32.7%);
+		}
+
+		& section:nth-of-type(3) {
+			background-color: hsl(340, 35.2%, 90.7%);
+			color: hsl(166.7, 94%, 16.1%);
+		}
+
+		& section:nth-of-type(4) {
+			background-color: hsl(240, 35.2%, 90.7%);
+			color: hsl(266.7, 94%, 16.1%);
+		}
+	}
+}

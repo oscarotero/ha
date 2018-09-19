@@ -1,0 +1,99 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+Pollas en el Herald
+*/
+
+.tm-reportage-4 {
+    --accent-color: hsl(202, 60%, 50%);
+
+	&::before {
+		content: '';
+		display: block;
+		width: 90vmin;
+		height: 80vmin;
+		background-image: var(--main-image);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: bottom center;
+		position: absolute;
+		transform: rotate(-15deg) translateY(-15vmin);
+		top: 0;
+		left: 0;
+		box-shadow: 0 2px 2px color-mod(black a(.6)), 0 0 12px color-mod(black a(.3));
+	}
+
+
+	& .reportage-header {
+		min-height: 70vh;
+		box-sizing: border-box;
+	}
+
+	& .reportage-nav {
+		z-index: 2;
+	}
+
+	& .taxonomy-info li {
+		background-color: var(--background-color);
+		padding: .6em 1em;
+		box-shadow: 0 2px 3px color-mod(black a(.3));
+	}
+
+	& .reportage-title {
+		z-index: 2;
+		text-shadow: 2px  2px 0 white,
+					-2px  2px 0 white,
+					-2px -2px 0 white,
+					 2px -2px 0 white,
+					 0 0 7px black;
+		padding-bottom: var(--size-gap-rows);
+		border-bottom: solid 10px var(--accent-color);
+		text-transform: uppercase;
+	}
+
+	& .reportage-subtitle {
+		color: white;
+		z-index: 2;
+		text-shadow: 1px  1px 0 black,
+					-1px  1px 0 black,
+					-1px -1px 0 black,
+					 1px -1px 0 black,
+					 0 0 7px black;
+	}
+
+	& .reportage-body {
+		& .section-highlighttext {
+			border-bottom: solid 10px var(--accent-color);
+			margin-bottom: var(--size-gap-rows);
+		}
+
+		& .section-image {
+			margin-top: calc(var(--size-gap-rows) * 2);
+			margin-bottom: calc(var(--size-gap-rows) * 2);
+
+			& img {
+				box-shadow: 0 2px 2px color-mod(black a(.6)),
+							0 0 12px color-mod(black a(.3));
+				display: block;
+				margin: auto;
+			}
+
+			&:nth-of-type(1) {
+				transform: rotate(5deg);
+			}
+
+			&:nth-of-type(2) {
+				transform: rotate(-6deg);
+			}
+
+			&:nth-of-type(3) {
+				transform: rotate(7deg);
+			}
+
+			&:nth-of-type(4) {
+				transform: rotate(-8deg);
+			}
+		}
+	}
+}

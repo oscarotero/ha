@@ -1,0 +1,69 @@
+.carousel-wrapper {
+	position: relative;
+
+	&.has-scroll-hidden {
+		overflow-y: hidden;
+
+		& ha-carousel {
+			padding-bottom: 40px;
+			margin-bottom: -40px;
+		}
+	}
+}
+
+ha-carousel {
+	width: 100%;
+	overflow-x: auto;
+	display: flex;
+	margin: 0;
+	padding: 0;
+	scroll-snap-type: x mandatory;
+
+	& > * {
+		flex: 0 0 auto;
+		scroll-snap-align: center;
+	}
+}
+.carousel-button {
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	background: var(--background-color);
+	color: var(--foreground-color);
+	border: solid 1px;
+	width: 6rem;
+	height: 6rem;
+	box-sizing: border-box;
+	padding: 0;
+	border-radius: 50%;
+
+	&:focus {
+		outline: 0;
+	}
+
+	&:hover {
+		color: var(--background-color);
+		background-color: var(--foreground-color);
+
+		& svg {
+			animation: navbarLinkHover .6s;
+			animation-iteration-count: infinite;
+		}
+	}
+
+	&.is-next {
+		right: 1rem;
+	}
+
+	&.is-prev {
+		left: 1rem;
+	}
+
+	&[disabled] {
+		opacity: 0;
+	}
+}
+
+html.is-touch .carousel-button {
+	display: none;
+}

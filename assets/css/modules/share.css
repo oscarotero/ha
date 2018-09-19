@@ -1,0 +1,49 @@
+.share {
+	display: flex;
+	margin: 0;
+	position: sticky;
+	bottom: 0;
+	background: var(--background-color);
+
+	& svg {
+		display: block;
+		width: var(--size-2);
+		height: var(--size-2);
+	}
+	& path {
+		fill: currentColor;
+	}
+	& a {
+		width: 3rem;
+		height: 3rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: solid 1px;
+
+		& + a {
+			border-left: none;
+		}
+
+		&:hover {
+			& path {
+				fill: white;
+			}
+			&.share-pinterest {
+				background-color: #BD081C;
+			}
+			&.share-twitter {
+				background-color: #1DA1F2;
+			}
+			&.share-facebook {
+				background-color: #3B5998;
+			}
+			&.share-plus {
+				background-color: #DC4E41;
+			}
+			&.share-instagram {
+				background-color: #E4405F;
+			}
+		}
+	}
+}

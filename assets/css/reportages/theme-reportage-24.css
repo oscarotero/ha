@@ -1,0 +1,29 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+El canon historiográfico y sus implicaciones eurocentristas
+*/
+
+.tm-reportage-24 {
+    --accent-color: hsl(200, 100%, 30%);
+    padding-bottom: var(--size-gap-rows);
+
+	& .reportage-subtitle {
+		color: var(--accent-color);
+	}
+
+	& .reportage-body {
+		&::before {
+			content: '';
+			display: block;
+			height: 80vmin;
+			width: 80vmin;
+			margin: 0 auto;
+			background-image: var(--main-image);
+			background-size: cover;
+			background-position: center;
+			grid-column: 1 / -1;
+		}
+	}
+}

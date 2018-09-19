@@ -1,0 +1,19 @@
+/* TEAM */
+	Coordinador de contenidos y redactor: Miguel Calvo Santos
+	Website: https://noxocreacion.com/
+	Facebook: https://www.facebook.com/bandeiranegraradio
+	From: Ordes, Galiza, Spain
+
+	Diseño y desarrollo web: Óscar Otero Marzoa
+	Website: https://oscarotero.com
+	Twitter: @misteroom
+	From: Santiago de Compostela, Galiza, Spain
+
+/* THANKS */
+	A todos los colaboradores: https://historia-arte.com/autores
+
+/* SITE */
+	Language: Español
+	Doctype: HTML5
+	Standards: HTML5, CSS3, ES5, SVG
+	Sofware: PHP7, Nginx, Mysql, Sublime Text

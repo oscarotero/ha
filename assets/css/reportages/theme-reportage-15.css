@@ -1,0 +1,69 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+Los secretos de las meninas
+*/
+
+.tm-reportage-15 {
+    --color-1: var(--background-color);
+    --color-2: var(--foreground-color);
+    --accent-color: hsl(21, 95%, 55%);
+
+	@extend %reportage-big-header;
+	padding-bottom: var(--size-gap-rows);
+
+	& .reportage-header {
+		background-image: linear-gradient(var(--background-color), var(--background-color)), var(--main-image);
+		background-blend-mode: hard-light;
+		background-size: cover;
+		background-position: center;
+		min-height: 100vh;
+		box-sizing: border-box;
+	}
+
+	& .reportage-title {
+		max-width: 48rem;
+	}
+
+	& .reportage-subtitle {
+		color: var(--accent-color);
+	}
+
+	& .reportage-body {
+		margin-top: -20vh;
+
+		& > div:first-child {
+			@extend %reportage-section-outbox;
+			background-color: var(--background-color);
+			border-top: solid 10px var(--accent-color);
+		}
+
+		& > section {
+			background-color: var(--background-color);
+			color: var(--foreground-color);
+		}
+
+		& > section:nth-of-type(1),
+		& > section:nth-of-type(3),
+		& > section:nth-of-type(5) {
+			@extend %reportage-section-title_body;
+			--background-color: white;
+			--foreground-color: var(--color-1);
+		}
+
+		& > section:nth-of-type(2),
+		& > section:nth-of-type(4),
+		& > section:nth-of-type(6) {
+			@extend %reportage-section-title_body;
+		}
+
+		& h2 {
+			border-left: solid 10px var(--accent-color);
+			padding-left: 1rem;
+			align-self: flex-start;
+			@extend %serif-3;
+			font-weight: normal;
+		}
+	}
+}

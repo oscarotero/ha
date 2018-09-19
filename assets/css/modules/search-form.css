@@ -1,0 +1,245 @@
+.searchForm-header {
+    padding-bottom: var(--size-gap-rows);
+
+    & h2 {
+		@extend %sans-2;
+		margin: 0;
+
+		& em {
+			font-family: inherit;
+			font-weight: normal;
+			font-style: normal;
+			text-decoration: inherit;
+			display: inline-block;
+		}
+	}
+
+	@media (--from-width-2) {
+		height: 4rem;
+		display: flex;
+		align-items: flex-end;
+	}
+}
+
+.searchForm-subtitle {
+	@extend %sans-1;
+	text-transform: uppercase;
+	margin: 0 0 .6rem;
+	font-weight: bold;
+	outline: 0;
+	cursor: default;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+summary.searchForm-subtitle {
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.searchForm-option {
+	background: none;
+	border: none;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	padding: .3em;
+	text-align: left;
+	color: currentColor;
+
+	&::before {
+		content: "";
+		display: block;
+		width: 1em;
+		height: 1em;
+		box-sizing: border-box;
+		border-radius: 50%;
+		border: solid 1px;
+		margin-right: 1em;
+		flex: 0 0 auto;
+	}
+
+	&:hover {
+		&::before {
+			border-width: 3px;
+		}
+	}
+
+	&:focus {
+		outline: 0;
+	}
+
+	&.is-selected {
+		font-weight: bold;
+		border-color: currentColor;
+
+		&::before {
+			background-color: var(--accent-color);
+			border-width: 2px;
+			border-color: var(--background-color);
+			box-shadow: 0 0 0 3px var(--accent-color);
+		}
+	}
+
+	&.is-more {
+		&::after {
+			content: "...";
+		}
+
+		& + input,
+		& + select {
+			display: none;
+		}
+
+		&.is-selected {
+			&::after {
+				content: "";
+			}
+
+			& + input,
+			& + select {
+				display: block;
+			}
+		}
+	}
+}
+
+.searchForm {
+	position: relative;
+
+	@media (--to-width-3) {
+		column-width: 16rem;
+	}
+
+	& input[type="range"] {
+		width: calc(100% - 2.2rem);
+		margin-top: 1em;
+		margin-left: 2.2rem;
+	}
+
+	& select {
+		width: calc(100% - 2.2rem);
+		box-sizing: border-box;
+		margin-left: 2.2rem;
+
+		background: transparent;
+		appearance: none;
+		border: none;
+		border-bottom: dashed 1px;
+		border-radius: 0;
+		padding: .6em 0;
+		background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 12 12" width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"><polygon points="1 5 6 0 11 5 1 5"/><polygon points="11 7 6 12 1 7 11 7"/></svg>');
+		background-repeat: no-repeat;
+		background-position: right center;
+
+		&:hover {
+			border-bottom-style: solid;
+			border-bottom-color: var(--accent-color);
+		}
+	}
+
+	&.is-loading::after {
+		content: "";
+		display: block;
+		background-color: var(--background-color);
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		position: absolute;
+		animation: searchFormLoading 1s;
+		animation-fill-mode: both;
+	}
+}
+
+@keyframes searchFormLoading {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.searchForm-submit {
+	padding: 1em 0;
+}
+
+.searchForm-group {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 1rem;
+
+	&[open] {
+		margin-bottom: var(--size-gap-rows);
+	}
+
+	&.has-radio {
+		& label {
+			display: flex;
+			align-items: center;
+			padding: .3em;
+			margin-top: 1px;
+
+			&::before {
+				content: "";
+				display: block;
+				width: 1em;
+				height: 1em;
+				box-sizing: border-box;
+				border-radius: 50%;
+				border: solid 1px;
+				margin-right: 1em;
+				flex: 0 0 auto;
+			}
+
+			&:hover::before {
+				border-width: 3px;
+			}
+
+			&.has-output {
+				&::after {
+					content: "...";
+				}
+
+				& output {
+					display: none;
+					margin-left: .5em;
+				}
+			}
+		}
+
+		& input[type="radio"]:checked + label {
+			font-weight: bold;
+			border-color: currentColor;
+
+			&::before {
+				background-color: var(--accent-color);
+				border-width: 2px;
+				border-color: var(--background-color);
+				box-shadow: 0 0 0 3px var(--accent-color);
+			}
+
+			&.has-output {
+				&::after {
+					content: "";
+				}
+
+				& output {
+					display: inline;
+				}
+			}
+		}
+
+		& input[type="radio"]:focus + label {
+			outline: dashed 1px;
+		}
+
+		& input[type="radio"] {
+			opacity: 0;
+			position: absolute;
+		}
+	}
+}

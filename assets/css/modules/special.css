@@ -1,0 +1,38 @@
+.special-description {
+	@extend %body-text;
+
+	& p:first-child::first-letter {
+		@extend %capitular;
+	}
+}
+.special.is-permalink {
+	& .special-title {
+		@extend %sans-4;
+		margin: 0;
+	}
+	& .special-dates {
+		@extend %sans-2;
+		margin: .3rem 0 0;
+	}
+}
+
+.special-search-list {
+	@extend %sans-1;
+	margin: 0;
+	padding: 0;
+	column-width: 18em;
+    column-gap: 2em;
+    column-fill: balance;
+
+	& li {
+		margin-bottom: 1em;
+		display: inline-block;
+		white-space: nowrap;
+		width: 100%;
+	}
+
+	& a {
+		@extend %link-inverse;
+		display: block;
+	}
+}

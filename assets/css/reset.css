@@ -1,0 +1,91 @@
+body {
+	font-family: sans-serif;
+	font-family: var(--font-sans);
+	overflow-x: hidden;
+	background-color: var(--background-color);
+	color: var(--foreground-color);
+	min-width: 320px;
+	/*overscroll-behaviour: contain;*/
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-sans);
+}
+a {
+	color: inherit;
+	text-decoration-skip: ink;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+a,input, button, select, textarea {
+	&:focus {
+		outline: dashed 1px;
+		outline-offset: .6rem;
+	}
+}
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	image-rendering: -webkit-optimize-contrast;
+	font-family: sans-serif;
+}
+
+.icon {
+	& path {
+		fill: currentColor;
+	}
+}
+.util-nowrap {
+	white-space: nowrap;
+}
+.util-visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap; /* 1 */
+}
+[hidden] {
+	display: none !important;
+}
+
+meter {
+	display: block;
+	margin: 1em 0 0;
+	appearance: meter;
+	-moz-appearance: none;
+	border: none;
+	background-size: auto;
+	height: 5px;
+	width: 100%;
+	background: var(--background-color);
+	border-radius: 3px;
+
+	&::-webkit-meter-inner-element {
+		-webkit-appearance: inherit;
+		box-sizing: inherit;
+		height: 100%;
+		width: 100%;
+	}
+	&::-webkit-meter-optimum-value {
+		background: var(--foreground-color);
+		border-radius: 3px 0 0 3px;
+	}
+	&::-webkit-meter-bar {
+		background: var(--background-color);
+		border-radius: 3px;
+		height: 100%;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	&::-moz-meter-bar {
+		background: var(--foreground-color);
+		border-radius: 3px 0 0 3px;
+	}
+}

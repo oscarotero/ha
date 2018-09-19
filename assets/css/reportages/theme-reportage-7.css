@@ -1,0 +1,91 @@
+@import './theme-placeholders.css';
+@import '../layouts/ly-reportage-1col.css';
+
+/*
+La historia del arte en 10 discos
+*/
+
+.tm-reportage-7 {
+    --accent-color: hsl(125, 56%, 61%);
+
+	background-repeat: no-repeat;
+	background-color: var(--background-color);
+	background-size: 100% 200px;
+	background-attachment: fixed;
+
+	& .reportage-header {
+		@media (--to-width-4) {
+			border-bottom: solid 1px color-mod(white a(.1));
+		}
+
+		& p {
+			color: var(--accent-color);
+		}
+	}
+
+	& .reportage-body {
+		grid-template-columns: 1fr minmax(auto, 84rem) 1fr;
+
+		& > div:first-child {
+			column-width: 18em;
+		    column-gap: 2em;
+		    column-fill: balance;
+		}
+
+		& h2 {
+			padding-bottom: var(--size-gap-rows);
+			@extend %sans-2;
+			text-transform: uppercase;
+			color: var(--accent-color);
+			border-bottom: solid 1px color-mod(white a(.25));
+		}
+
+		& h3 {
+			border-left: solid 10px var(--accent-color);
+			padding-left: .6em;
+			margin-bottom: 2rem;
+			color: white;
+
+			& em {
+				font-weight: normal;
+				font-family: var(--font-serif);
+
+				&::after {
+					content: "";
+					display: block;
+				}
+			}
+		}
+
+		& > section {
+			margin-top: var(--size-gap-rows);
+			padding: 0 var(--size-gap-columns) var(--size-gap-rows);
+			background-color: black;
+			color: hsl(350, 5%, 66%);
+			border-radius: 2px;
+		}
+
+		@media (--from-width-3) {
+			& > section {
+				display: grid;
+				grid-template-columns: minmax(25rem, 1fr) minmax(200px, 350px);
+				grid-column-gap: var(--size-gap-columns);
+				grid-row-gap: var(--size-gap-rows);
+
+				& h2 {
+					grid-column-end: span 2;
+				}
+
+				& > div {
+					grid-column-start: 1;
+					align-self: center;
+				}
+
+				& > figure {
+					grid-column-start: 2;
+					align-self: center;
+				}
+			}
+		}
+	}
+}

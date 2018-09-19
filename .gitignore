@@ -1,0 +1,19 @@
+# LOCAL DATA (logs, cache, environment variables, etc)
+
+data/*
+.env
+public/_
+public/css
+public/fonts
+public/icons
+public/img
+public/js
+public/sw.js
+public/sitemap_*.xml
+notas-redesign.md
+hint-report/
+
+# DEPENDENCIES
+
+vendor/
+node_modules/

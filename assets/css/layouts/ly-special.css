@@ -1,0 +1,81 @@
+.ly-special {
+    @extend %sticky-bottom;
+    display: grid;
+    grid-column-gap: var(--size-gap-columns);
+    grid-row-gap: var(--size-gap-rows);
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    grid-template-columns: 0 1fr 0;
+    grid-template-rows: 4rem auto auto auto auto auto auto 4rem;
+    justify-content: space-between;
+    align-content: space-between;
+    grid-template-areas: '. . .'
+                         '. header .'
+                         '. description .'
+                         '. artworks .'
+                         '. reportages .'
+                         '. related .'
+                         '. . .';
+
+    &.has-no-description {
+        grid-template-rows: 4rem auto auto auto auto auto 4rem;
+        grid-template-areas: '. . .'
+                            '. header .'
+                            '. artworks .'
+                            '. reportages .'
+                            '. related .'
+                            '. . .';
+    }
+
+    @media (--from-width-3) {
+        grid-template-columns: 0 minmax(auto, 36rem) 1fr 0;
+        grid-template-rows: 4rem auto auto auto auto 4rem;
+        grid-template-areas: '. . . .'
+                             '. header . .'
+                             '. description artworks .'
+                             '. description reportages .'
+                             '. related related .'
+                             '. . . .';
+
+        &.has-no-description {
+            grid-template-columns: 0 minmax(auto, 90rem) 18rem 0;
+            grid-template-rows: 4rem auto auto auto 4rem;
+            grid-template-areas: '. . . .'
+                                '. header . .'
+                                '. artworks related .'
+                                '. reportages related .'
+                                '. . . .';
+        }
+    }
+
+    @media (--from-width-6) {
+        grid-template-columns: 0 minmax(auto, 36rem) 1fr 18rem 0;
+        grid-template-rows: 4rem auto auto auto 4rem;
+        grid-template-areas: '. . . . .'
+                             '. header reportages . .'
+                             '. description artworks related .'
+                             '. . . . .';
+    }
+}
+
+.ly-special-header {
+    grid-area: header;
+}
+
+.ly-special-description {
+    grid-area: description;
+    max-width: 36em;
+}
+
+.ly-special-artworks {
+    grid-area: artworks;
+}
+
+.ly-special-reportages {
+    grid-area: reportages;
+}
+
+.ly-special-related {
+    grid-area: related;
+}

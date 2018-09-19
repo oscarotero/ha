@@ -1,0 +1,1 @@
+<a href="<?= $this->url('country-permalink', ['slug' => $country->slug]) ?>"><?= $country->name ?></a>
